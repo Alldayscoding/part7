@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
       layout:decorate="~{layout/basic.html}">
 
 <head>
@@ -28,8 +29,7 @@
 
             <div class="input-group mb-3">
               <span class="input-group-text">Writer</span>
-              <input type="text" name="writer" class="form-control" placeholder="Writer">
-
+              <input type="text" name="writer" class="form-control" placeholder="Writer" th:value="${#authentication.principal.username}" readonly >
             </div>
 
             <div class="input-group mb-3">
@@ -91,6 +91,9 @@
 
 
 <script layout:fragment="script" th:inline="javascript">
+
+  const auth = [[${#authentication}]]
+  const auth2 = [[${#authentication.principal}]]
 
   const errors = [[${errors}]]
   console.log(errors)

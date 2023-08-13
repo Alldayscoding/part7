@@ -32,7 +32,7 @@ public class BoardRepositoryTests {
 
     @Test
     public void testInsert() {
-        IntStream.rangeClosed(1,100).forEach(i -> {
+        IntStream.rangeClosed(1,30).forEach(i -> {
             Board board = Board.builder()
                     .title("title..." +i)
                     .content("content..." + i)
